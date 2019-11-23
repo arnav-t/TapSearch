@@ -3,7 +3,7 @@ def gen_indices(indices, id, paragraph, delimiter):
 	# Replace newline characters
 	paragraph = paragraph.replace('\n', ' ')
 	# Split words by delimiter
-	words = [word.strip() for word in paragraph.split(delimiter)]
+	words = [word.strip().lower() for word in paragraph.split(delimiter)]
 	# Save number of occurences of word in a reverse index
 	for word in words:
 		if word:

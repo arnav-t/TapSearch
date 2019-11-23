@@ -61,3 +61,19 @@ def clear():
 	reverseIndices.clear()
 	indexed.clear()
 	return 'Success', 200
+
+@app.route(f'/{API_ENDPOINT}/search')
+def search():
+	"""Search and return top paragraphs for the given word."""
+	word = request.args.get('query')
+	if word is None:
+		return 'Missing parameter', 400
+	word = word.strip().lower()
+	# Return empty list if word is not found
+	if word not in reverseIndices.keys():
+		return jsonify([])
+	# Sort in descending order and return paragraphs
+	indices = sorted(reverseIndices[word], key=reverseIndices[word].get, reverse=True)
+	results = [paragraphs[idx] for idx in indices]
+	return jsonify(results)
+	
