@@ -13,3 +13,5 @@ Fill in the keyword and click "Search" to search for a word in the indexed parag
 To clear the memory, simply click the "Clear" button.
 ### View all paragraphs in memory with their indices
 Click the "View All" button.
+### Parse PDF
+Upload a PDF file to parse its contents.
