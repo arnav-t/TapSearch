@@ -67,3 +67,43 @@ $('#clear-btn').click(function() {
 getAll();
 
 $('#view-btn').click(getAll);
+
+function readPDF() {
+    var file = document.getElementById('file-in').files[0];
+    if (file) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var content = e.target.result;
+			var getText = function(content) {
+				return pdfjsLib.getDocument({data: content}).then(function(pdf) {
+					var pages = [];
+					for (var i = 0; i < pdf.numPages; i++) {
+						pages.push(i);
+					}
+					return Promise.all(pages.map(function(pageNumber) {
+						return pdf.getPage(pageNumber + 1).then(function(page) {
+							return page.getTextContent().then(function(textContent) {
+								return textContent.items.map(function(item) {
+									return item.str;
+								}).join(' ');
+							});
+						});
+					})).then(function(pages) {
+						return pages.join("\n\n");
+					});
+				}).then(function(result) {
+					$.post("/api/add",
+					JSON.stringify({
+						data: result
+					}),
+					function(data, status) {
+						populateList(data);
+					}, "json");
+				});
+			}
+			getText(content);
+			
+        }
+        reader.readAsText(file);
+    }
+}

@@ -11,6 +11,7 @@
 	</head>
 	<body>
 		<h1 class="display-4 text-light mb-5 pb-5">TapSearch v1.0</h1>
+		<i class="display-6 text-light">Please index the paragraphs before searching by clicking "Index Paragraph"</i>
 		<div class="panel p-2">
 			<textarea id="add-txt" placeholder="Paragraph text here" class="form-control rounded-4"></textarea>
 			<button type="button" class="btn btn-info mx-2" id="add-btn">Add Paragraphs</button>
@@ -26,6 +27,7 @@
 		<div class="panel p-2">
 				<button type="button" class="btn btn-danger mx-2" id="clear-btn">Clear</button>
 				<button type="button" class="btn btn-success mx-2" id="view-btn">View All</button>
+				<input id="file-in" type="file" class="form-control" onchange="readPDF()">
 
 		</div>
 		<div class="panel p-2 mt-5 border border-light rounded-sm text-light">
@@ -35,6 +37,8 @@
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+
+		<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.2.228/build/pdf.min.js"></script>
 		
 		<script src="../static/scripts/script.js" async defer></script>
 	</body>
