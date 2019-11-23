@@ -20,8 +20,11 @@ def get_paragraphs():
 def add_paragraphs():
 	"""Add paragraphs to memory and return all paragraphs."""
 	newParagraphs = request.get_json(force=True)['data']
+	newParagraphs = newParagraphs.split(PARAGRAPH_DELIMITER)
+	# Remove empty paragraphs
+	newParagraphs = list(filter(None, newParagraphs))
 	# Split by delimiter and add to list
-	paragraphs.extend(newParagraphs.split(PARAGRAPH_DELIMITER))
+	paragraphs.extend(newParagraphs)
 	return jsonify(paragraphs)
 
 @app.route(f'/{API_ENDPOINT}/index')
@@ -50,3 +53,11 @@ def index_paragraph():
 			gen_indices(reverseIndices, id, paragraphs[id], WORD_DELIMITER)
 			indexed.add(id)
 	return jsonify(reverseIndices)
+
+@app.route(f'/{API_ENDPOINT}/clear')
+def clear():
+	"""Flush all paragraphs and indices from memory."""
+	del paragraphs[:]
+	reverseIndices.clear()
+	indexed.clear()
+	return 'Success', 200
