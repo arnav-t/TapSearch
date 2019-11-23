@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, render_template, request
 from gen_indices import gen_indices
+from os import environ
 
 API_ENDPOINT = 'api'
 PARAGRAPH_DELIMITER = '\n\n'
@@ -81,4 +82,7 @@ def search():
 	indices = sorted(reverseIndices[word], key=reverseIndices[word].get, reverse=True)
 	results = [paragraphs[idx] for idx in indices]
 	return jsonify(results)
-	
+
+if __name__ == '__main__':
+	port = int(environ.get("PORT", 5000))
+	app.run(host='0.0.0.0', port=port)
