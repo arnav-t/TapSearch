@@ -1,0 +1,20 @@
+body {
+	background: linear-gradient(to right, #ad5389, #3c1053);
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.panel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 60%;
+}
+
+textarea {
+	min-height: 150px;
+	max-width: 80%;
+}

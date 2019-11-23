@@ -1,15 +1,20 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 from gen_indices import gen_indices
 
 API_ENDPOINT = 'api'
 PARAGRAPH_DELIMITER = '\n\n'
 WORD_DELIMITER = ' '
 
-app = Flask(__name__)		# Start flask app
+app = Flask(__name__, template_folder='./templates')		# Start flask app
 
 paragraphs = []		# Paragraphs list
 reverseIndices = {}		# Reverse indices for the paragraphs
 indexed = set()		# Set of indexed paragraphs 
+
+@app.route('/')
+def home():
+	"""Return the homepage."""
+	return render_template('home.html')
 
 @app.route(f'/{API_ENDPOINT}/get')
 def get_paragraphs():

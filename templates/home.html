@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>TapSearch v1.0</title>
+		<meta name="description" content="TapSearch v1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../static/styles/stylesheet.css">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	</head>
+	<body>
+		<h1 class="display-4 text-light mb-5 pb-5">TapSearch v1.0</h1>
+		<div class="panel p-2">
+			<textarea id="add-txt" placeholder="Paragraph text here" class="form-control rounded-4"></textarea>
+			<button type="button" class="btn btn-info mx-2" id="add-btn">Add Paragraphs</button>
+		</div>
+		<div class="panel p-2">
+				<input type="number" class="form-control rounded-4" name="id" id="idx-txt" placeholder="Paragraph ID">
+				<button type="button" class="btn btn-info mx-2" id="idx-btn">Index Paragraph</button>
+		</div>
+		<div class="panel p-2">
+				<input type="text" class="form-control rounded-4" name="search" id="search-txt" placeholder="Keyword">
+				<button type="button" class="btn btn-info mx-2" id="search-btn">Search</button>
+		</div>
+		<div class="panel p-2">
+				<button type="button" class="btn btn-danger mx-2" id="clear-btn">Clear</button>
+				<button type="button" class="btn btn-success mx-2" id="view-btn">View All</button>
+
+		</div>
+		<div class="panel p-2 mt-5 border border-light rounded-sm text-light">
+			<ol start="0" id="res"></ol>
+		</div>
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+		
+		<script src="../static/scripts/script.js" async defer></script>
+	</body>
+</html>
